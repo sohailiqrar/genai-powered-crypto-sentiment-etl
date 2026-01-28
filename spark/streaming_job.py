@@ -3,6 +3,8 @@ from pyspark.sql.functions import col, from_json
 
 spark = SparkSession.builder.appName("crypto-sentiment-stream").getOrCreate()
 
+spark.sparkContext.setLogLevel("WARN")
+
 event_hub_conf = {
     'eventhubs.connectionString': dbutils.secrets.get(
         scope="eventhub-scope", 
@@ -16,3 +18,4 @@ raw_df = (
          .load()
 )
 
+raw_df.printSchema()

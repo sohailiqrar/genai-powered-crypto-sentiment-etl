@@ -11,6 +11,28 @@ import json
 
 load_dotenv()
 
+def get_crypto_price(): 
+    print("Fetching crypto price...")
+    COINMARKETCAP_API_KEY = os.getenv('COINMARKETCAP_API_KEY')
+    url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
+    headers = {
+        "Accepts": "application/json",
+        "X-CMC_PRO_API_KEY": COINMARKETCAP_API_KEY
+    }
+    params = {
+        "symbol": "BTC,ETH,XRP"
+        # "convert": "USD"
+    }
+
+    try:
+        response = requests.get(url, headers=headers, params=params)
+        response.raise_for_status()
+        data = response.json()
+        return data
+    except Exception as e:
+        print(f"Error fetching crypto price: {e}")
+        return None
+
 def get_crypto_news():
     print("Fetching crypto news from CryptoPanic...")
     
@@ -64,28 +86,32 @@ def get_crypto_news():
     return []
 
 if __name__ == "__main__":
-    event_envelopes = get_crypto_news()
+    # event_envelopes = get_crypto_news()
 
-    producer = get_eventhub_producer()
-    batch = producer.create_batch()
+    # producer = get_eventhub_producer()
+    # batch = producer.create_batch()
 
-    for event in event_envelopes:
-        event_data = EventData(json.dumps(event))
-        try:
-            batch.add(event_data)
-        except ValueError:
-            producer.send_batch(batch)
-            batch = producer.create_batch()
-            batch.add(event_data)
+    # for event in event_envelopes:
+    #     event_data = EventData(json.dumps(event))
+    #     try:
+    #         batch.add(event_data)
+    #     except ValueError:
+    #         producer.send_batch(batch)
+    #         batch = producer.create_batch()
+    #         batch.add(event_data)
 
-    if len(batch) > 0:
-        producer.send_batch(batch)
+    # if len(batch) > 0:
+    #     producer.send_batch(batch)
 
-    producer.close()
+    # producer.close()
 
-    # Print the first item clearly to verify
-    if event_envelopes:
-        print(f"\nSuccess! Fetched {len(event_envelopes)} articles.")
-    else:
-        print("No news found.")
+    # # Print the first item clearly to verify
+    # if event_envelopes:
+    #     print(f"\nSuccess! Fetched {len(event_envelopes)} articles.")
+    # else:
+    #     print("No news found.")
+
+    crypto_price_data = get_crypto_price()
+    if crypto_price_data:   
+        print(json.dumps(crypto_price_data, indent=2)) 
 
