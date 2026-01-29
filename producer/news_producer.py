@@ -4,8 +4,9 @@ import json
 import time
 import os
 from dotenv import load_dotenv
-from schema import clean_news_data
-from eventhub_client import get_eventhub_producer
+from GenAI.gemini import get_gemini_response
+from producer.schema import clean_news_data
+from producer.eventhub_client import get_eventhub_producer
 from azure.eventhub import EventData
 import json
 
@@ -111,7 +112,19 @@ if __name__ == "__main__":
     # else:
     #     print("No news found.")
 
-    crypto_price_data = get_crypto_price()
-    if crypto_price_data:   
-        print(json.dumps(crypto_price_data, indent=2)) 
 
+    crypto_price_data = get_crypto_news()
+    crypto_news_data = []
+
+    for news in crypto_price_data:
+        article = []
+        article.append(news['payload']['description'])
+        article.append(news['payload']['published_at'])
+
+        crypto_news_data.append(article)
+
+    # print(json.dumps(crypto_news_data, indent=2))
+
+    gemini_response = get_gemini_response(crypto_news_data)
+    print("Gemini Response:")
+    print(gemini_response)
