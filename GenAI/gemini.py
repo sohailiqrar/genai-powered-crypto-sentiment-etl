@@ -1,3 +1,4 @@
+import uuid
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
@@ -58,4 +59,7 @@ def get_gemini_response(news_descriptions: List[List[str]]) -> str:
         print(f"Error communicating with Gemini API: {e}")
         return ""
 
-    return response.choices[0].message.content
+    gemini_output = json.loads(response.choices[0].message.content)
+
+    return gemini_output.get("news_analysis", [])
+
