@@ -4,7 +4,8 @@ from producer.schema import clean_price_data
 
 
 def get_sample_news_data():
-  news = [
+  news = { 
+  "news_analysis": [
   {
     "description": "As the market wobbled, Chainlink\u2019s breakdown exposed a clash between price damage and positioning.",
     "published_at": "2026-02-01T12:00:42Z"
@@ -64,9 +65,9 @@ def get_sample_news_data():
   {
     "description": "\"Investor Psychology: Valuable Lessons Learned from the Uneven Returns Experienced in the Financial Markets of 2025\"",
     "published_at": "2026-02-01T11:30:00Z"
-  }]
+  }]}
 
-  return news
+  return news.get("news_analysis", [])
 
 def get_sample_gemini_response():
   response = {
@@ -143,7 +144,7 @@ def get_sample_gemini_response():
     }
   ]}
 
-  return response
+  return response.get("news_analysis", [])
 
 
 def get_sample_price_data():
