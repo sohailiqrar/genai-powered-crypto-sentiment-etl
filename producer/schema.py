@@ -41,3 +41,12 @@ def clean_price_data(raw_price_data):
         
 
     return cleaned_prices
+
+def get_crypto_list(news_data): 
+    default_list = ["BTC","ETH","CMC20","USDT","BNB","XRP","USDC","ADA","SOL","DOGE","TRON","SOLANA","LINK","DOT","AVAX"]
+    list = ""
+    for item in news_data: 
+        if item["symbol"] not in default_list and item["symbol"] != "N/A":
+            list += item["symbol"] + ","
+    return list[:-1]  
+        

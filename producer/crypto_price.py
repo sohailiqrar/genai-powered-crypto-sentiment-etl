@@ -3,7 +3,7 @@ import time
 import requests
 from producer.schema import clean_price_data
 
-def get_crypto_price(): 
+def get_crypto_price(list): 
     print("\nFetching crypto price from CoinMarketCap...")
     COINMARKETCAP_API_KEY = os.getenv('COINMARKETCAP_API_KEY')
     url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
@@ -12,7 +12,7 @@ def get_crypto_price():
         "X-CMC_PRO_API_KEY": COINMARKETCAP_API_KEY
     }
     params = {
-        "symbol": "BTC,ETH,CMC20,USDT,BNB,XRP,USDC,ADA,SOL,DOGE,TRON,SOLANA,DOT,AVAX,SHIB",
+        "symbol": f"BTC,ETH,CMC20,USDT,BNB,XRP,USDC,ADA,SOL,DOGE,TRON,SOLANA,LINK,DOT,AVAX,{list}",
         # "convert": "USD"
     }
 
@@ -37,4 +37,4 @@ def get_crypto_price():
             return final_data
         except Exception as e:
             print(f"Error fetching crypto price: {e}")
-            return None
+            return []
