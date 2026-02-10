@@ -1,5 +1,4 @@
 import time
-import uuid
 
 REQUIRED_FIELDS = ["description", "published_at"]
 

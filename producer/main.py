@@ -42,34 +42,6 @@ if __name__ == "__main__":
         event_envelopes=price_data
     )
 
-    # event_envelopes = {"news_data": json.dumps(news_data), "price_data":json.dumps(price_data)}
-
-    # print("Prepared event envelopes:")
-    # print(json.dumps(event_envelopes, indent=2))
-
-    # producer = get_eventhub_producer()
-    # batch = producer.create_batch()
-
-    # for event in event_envelopes:
-    #     event_data = EventData(json.dumps(event))
-    #     try:
-    #         batch.add(event_data)
-    #     except ValueError:
-    #         producer.send_batch(batch)
-    #         batch = producer.create_batch()
-    #         batch.add(event_data)
-
-    # if len(batch) > 0:
-    #     producer.send_batch(batch)
-
-    # producer.close()
-
-    # # Print the first item clearly to verify
-    # if event_envelopes:
-    #     print(f"\nSuccess! Fetched {len(event_envelopes)} articles.")
-    # else:
-    #     print("No news found.")
-
 
 
 
