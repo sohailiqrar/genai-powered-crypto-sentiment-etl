@@ -1,6 +1,11 @@
 # Real-Time Crypto Sentiment Intelligence Platform  
 ### Streaming Data Engineering + GenAI Integration on Azure
 
+## Live Dashboard
+
+Access the interactive Power BI Dashboard here:
+[View Live Dashboard](https://app.powerbi.com/view?r=eyJrIjoiODEwOTY2MWMtZGU1MS00MDg2LWJmZGEtNGFhNmY2OGQ0MjIwIiwidCI6IjM0YmQ4YmVkLTJhYzEtNDFhZS05ZjA4LTRlMGEzZjExNzA2YyJ9)
+
 ---
 
 ## Executive Summary
@@ -34,7 +39,7 @@ This platform solves that by combining:
 ---
 
 ## High-Level Architecture
-![alt text](image.png)
+![Architecture of pipeline](assets/architecture.png)
 
 
 
@@ -290,6 +295,12 @@ The Real-Time Crypto Sentiment Intelligence Platform demonstrates modern data en
 
 It is not just a dashboard project.  
 It is a streaming-first, AI-enriched analytics system designed with production thinking.
+
+---
+
+## Dashboard Preview
+
+![Overview](assets/dashboard.png)
 
 ---
 
