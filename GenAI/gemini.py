@@ -15,7 +15,7 @@ gemini = OpenAI(base_url=GEMINI_BASE_URL, api_key=GEMINI_API_KEY)
 class CryptoNewsItem(BaseModel):
     symbol: str = Field(..., description="The ticker symbol (e.g., BTC, ETH). Use 'N/A' if not found.")
     name: str = Field(..., description="The full name of the cryptocurrency.")
-    description: str = Field(..., description="A brief summary of the specific news event.")
+    description: str = Field(..., description="A brief summary of the specific news event with maximum 10 words.")
     prediction: Literal["Positive", "Negative", "Neutral"] = Field(..., description="The inferred market trend.")
     published_at: str = Field(..., description="The exact timestamp string provided in the input for this specific news item.")
 
