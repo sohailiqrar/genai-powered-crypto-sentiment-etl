@@ -4,7 +4,7 @@
 ## Project Walkthrough Video:
 
 Access the quick Overview Video here:
-[Video Link]: (https://youtu.be/KE8XMBtwWwE)
+[Video Link](https://youtu.be/KE8XMBtwWwE)
 
 ---
 
