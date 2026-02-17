@@ -2,6 +2,8 @@
 ### Streaming Data Engineering + GenAI Integration on Azure
 
 ## Project Walkthrough Video:
+
+Access the quick Overview Video here:
 [Video Link]: (https://youtu.be/KE8XMBtwWwE)
 
 ---
