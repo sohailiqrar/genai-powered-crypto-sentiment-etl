@@ -1,6 +1,11 @@
 # Real-Time Crypto Sentiment Intelligence Platform  
 ### Streaming Data Engineering + GenAI Integration on Azure
 
+## Project Walkthrough Video:
+[Video Link]: (https://youtu.be/KE8XMBtwWwE)
+
+---
+
 ## Live Dashboard
 
 Access the interactive Power BI Dashboard here:
